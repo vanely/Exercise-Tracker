@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import DatePicker from 'react-datepicker';
 
 import './CreateExercise.styles.scss';
@@ -17,11 +18,16 @@ export default class CreateExercise extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({
-      users: ['test user'],
-      username: 'test user',
-
-    });
+    axios.get('http://localhost:5000/users/')
+      .then(res => {
+        // res.data will be an array of the users in DB
+        if (res.data.length > 0) {
+          this.setState({
+            users: res.data.map((user) => user.username),
+            username: res.data[0].username,
+          });
+        }
+      });
   }
 
   handleChange = (e) => {
@@ -30,6 +36,8 @@ export default class CreateExercise extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+
+    // serialize exercise data
     const exercise = {
       username: this.state.username,
       description: this.state.description,
@@ -37,6 +45,10 @@ export default class CreateExercise extends React.Component {
       date: this.state.date,
     };
     console.log(exercise);
+
+    // send serialized data to backend
+    axios.post('http://localhost:5000/exercises/add', exercise)
+      .then(res => console.log(res.data));
 
     // return to homepage after submission
     window.location = '/'
@@ -57,10 +69,10 @@ export default class CreateExercise extends React.Component {
               onChange={this.handleChange}
             >
               {
-                this.state.users.map((user) => {
+                this.state.users.map((user, index) => {
                   return (
                     <option
-                      key={user}
+                      key={index}
                       value={user}
                     >
                       {user}

@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 import './CreateUser.styles.scss';
 
@@ -16,10 +17,15 @@ export default class CreateUser extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    // serialize user to be sent to backend
     const user = {
       username: this.state.username,
     };
     console.log(user);
+
+    // send serialized user to backend using axios
+    axios.post('http://localhost:5000/users/add', user)
+      .then(res => console.log(res.data));
 
     this.setState({username: ''});
   };
