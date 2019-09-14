@@ -1,6 +1,6 @@
 import React from 'react';
 
-import 'EditExercise.styles.scss';
+import './EditExercise.styles.scss';
 
 export default class EditExercise extends React.Component {
   constructor(props) {
@@ -13,7 +13,7 @@ export default class EditExercise extends React.Component {
   render() {
     return (
       <div>
-
+        Edit Exercises component!
       </div>
     );
   }

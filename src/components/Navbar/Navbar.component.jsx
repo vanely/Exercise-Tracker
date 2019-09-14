@@ -1,23 +1,23 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 
-import 'Navbar.styles.scss';
+import './Navbar.styles.scss';
 
 export default class Navbar extends React.Component {
   render() {
     return (
-      <nav>
-        <Link to="/">ExerTracker</Link>
-        <div className="">
-          <ul className="">
-            <li>
-              <Link to=""></Link>
+      <nav className="nav-container">
+        <Link to="/" className="nav-title">ExerTracker</Link>
+        <div className="links-container">
+          <ul className="link-list">
+            <li className="">
+              <Link to="/" className="link">Exercises</Link>
             </li>
-            <li>
-              <Link to=""></Link>
+            <li className="">
+              <Link to="/create" className="link">Exercise Log</Link>
             </li>
-            <li>
-              <Link to=""></Link>
+            <li className="">
+              <Link to="/user" className="link">Create User</Link>
             </li>
           </ul>
         </div>

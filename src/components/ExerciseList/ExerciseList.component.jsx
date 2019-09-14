@@ -1,12 +1,13 @@
 import React from 'react';
-import 'ExerciseList.styles.scss';
 
-function ExerciseList(props) {
-  return (
-    <div>
+import './ExerciseList.styles.scss';
 
-    </div>
-  );
+export default class ExerciseList extends React.Component {
+  render() {
+    return (
+      <div>
+        Exercise List component!
+      </div>
+    );
+  }
 }
-
-export default ExerciseList;

@@ -1,0 +1,37 @@
+.nav-container {
+  display: flex;
+  padding: 2rem;
+  background-color: #363636;
+
+  .nav-title {
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+  }
+
+  .links-container {
+    width: 20%;
+
+    .link-list {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 0.3rem;
+      margin: 0;
+      list-style: none;
+
+      li {
+
+        text-decoration: none;
+
+        .link {
+          text-decoration: none;
+          color: #9ea0a3;
+
+          &:hover {
+            color: #d4d4d4;
+          }
+        }
+      }
+    }
+  }
+}
