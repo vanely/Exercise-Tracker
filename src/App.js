@@ -16,9 +16,9 @@ function App() {
      <div className="routes-container">
        <Switch>
          <Route exact path="/" component={ExerciseList}/>
-         <Route path="/edit/:id" component={EditExercise}/>
-         <Route path="/create" component={CreateExercise}/>
-         <Route path="/user" component={CreateUser}/>
+         <Route exact path="/edit/:id" component={EditExercise}/>
+         <Route exact path="/create" component={CreateExercise}/>
+         <Route exact path="/user" component={CreateUser}/>
        </Switch>
      </div>
    </Router>

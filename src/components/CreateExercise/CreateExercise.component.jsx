@@ -69,10 +69,10 @@ export default class CreateExercise extends React.Component {
               onChange={this.handleChange}
             >
               {
-                this.state.users.map((user, index) => {
+                this.state.users.map((user) => {
                   return (
                     <option
-                      key={index}
+                      key={user}
                       value={user}
                     >
                       {user}
@@ -103,10 +103,12 @@ export default class CreateExercise extends React.Component {
           </div>
           <div className="form-group">
             <label>Date: </label>
-            <DatePicker
-              selected={this.state.date}
-              onChange={this.handleChange}
-            />
+            <input type="date" onChange={this.handleChange} name="date" value={this.state.date} />
+            {/*<DatePicker*/}
+            {/*  name="date"*/}
+            {/*  selected={this.state.date}*/}
+            {/*  onChange={this.handleChange}*/}
+            {/*/>*/}
           </div>
 
           <div className="form-group">
